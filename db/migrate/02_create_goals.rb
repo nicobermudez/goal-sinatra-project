@@ -4,7 +4,7 @@ class CreateGoals < ActiveRecord::Migration
       t.string :title
       t.string :description
       t.string :action_plan
-      t.date :deadline
+      t.datetime :deadline
       t.string :completed
 
     end
