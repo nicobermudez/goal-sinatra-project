@@ -1,4 +1,5 @@
 require './config/environment'
+require 'rack-flash'
 
 class ApplicationController < Sinatra::Base
 
@@ -20,6 +21,14 @@ class ApplicationController < Sinatra::Base
 
     def current_user
       User.find(session[:user_id])
+    end
+
+    def user_goals
+      Goal.all.select{|goal| goal.user_id == session[:user_id]}
+    end
+
+    def dateify(date)
+      date.strftime("%B %d, %Y")
     end
   end
 

@@ -6,6 +6,7 @@ class CreateGoals < ActiveRecord::Migration
       t.string :action_plan
       t.datetime :deadline
       t.string :completed
+      t.integer :user_id
 
     end
   end

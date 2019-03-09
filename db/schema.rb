@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 2) do
     t.string   "action_plan"
     t.datetime "deadline"
     t.string   "completed"
+    t.integer  "user_id"
   end
 
   create_table "users", force: :cascade do |t|

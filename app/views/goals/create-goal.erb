@@ -1,0 +1,43 @@
+<html>
+  <head>
+    <title> Create Goal </title>
+    <style>
+
+      h3 {
+        text-align: center;
+      }
+
+      .user-form input{
+        width: 550px;
+      }
+
+      .user-form input.long-text {
+        padding-bottom: 100px;
+      }
+
+    </style>
+  </head>
+
+    <body>
+      <header>
+        <a href ="/"<h1>GOAL</h1></a>
+      </header>
+      <h3>Create New Goal </h3>
+
+      <% if flash.has?(:message) %>
+        <p style="color:#f0ad4e; text-align: center;"><%= flash[:message] %> </p>
+      <% end %>
+
+<!-- Need to validate date and email -->
+      <section class="user-form">
+        <form method="POST" action="/create-goal">
+          <input type="text" name="goal[title]" placeholder="Title"><br>
+          <input class= "long-text" type="text" name="goal[description]" placeholder="Description"><br>
+          <input class= "long-text" type="text" name="goal[action_plan]" placeholder="Action Plan"><br>
+          <input type="text" name="goal[deadline]" placeholder="Deadline (mm/dd/yyyy)"><br>
+          <button type="submit">Create Goal</button>
+        </form>
+      </section>
+
+    </body>
+</html>

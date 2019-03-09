@@ -1,7 +1,27 @@
-<h3>Sign Up</h3>
-<form action="/signup" method="POST">
-  <p>Name: <input type="text" name="username"></p>
-  <p>Email: <input type="text" name="email"></p>
-  <p>Password: <input type="text" name="password"></p>
-  <input class="btn btn-primary" type="submit">
-</form>
+<!doctype html>
+<html>
+  <head>
+    <title>Sign Up</title>
+    <style>
+      .user-form {
+        width: 520px;
+      }
+      h3 {
+        text-align: center;
+      }
+
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <a href ="/"<h1>GOAL</h1></a>
+    </header>
+    <h3>Sign Up</h3>
+    <form class = "user-form" action="/signup" method="POST">
+      <input type="text" name="username" placeholder= "Username">
+      <input type="text" name="email" placeholder="Email">
+      <input type="text" name="password" placeholder="Password">
+      <button type="submit">Sign Up </button>
+    </form>
+  </body>
