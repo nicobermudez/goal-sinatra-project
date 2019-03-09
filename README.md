@@ -1,1 +1,1 @@
-# Golaso Sinatra Project
+# GOAL Sinatra Project
