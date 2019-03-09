@@ -5,6 +5,18 @@
     .hero {
       padding: 40px;
     }
+    .user-feed p {
+      margin-left: 20px;
+    }
+    .title {
+      font-weight: 600;
+    }
+    .content {
+      margin-left: 20px;
+    }
+    .user-feed {
+      border-bottom: 1px solid #ABD0CE;
+    }
   </style>
 </head>
 
@@ -14,16 +26,23 @@
     <nav>
       <a href="/home">Home</a>
       <a href="/feed">Feed</a>
+      <a href="/resources">Resources</a>
       <a href="/">Log Out</a>
     </nav>
   </header>
   <body>
     <section class="hero">
-      <% Goal.all.each do |goal| %>
-        <% user = User.find_by_id(goal.user_id)%>
-        <% if user %>
-          <p> <%= user.username %>: <%=goal.title%></p>
-          <% end %>
+      <% sorted_user_hash = User.all.sort_by {|key| key[:username]} %>
+      <% sorted_user_hash.each do |user| %>
+        <% if !current_user_goals(user).empty? %>
+          <div class="user-feed">
+            <h4> @<%= user.username %>:</h4>
+            <% current_user_goals(user).each_with_index do |goal, index| %>
+              <div class="title"><p>Goal #<%=index+1%>: <%=goal.title%></p></div>
+              <div class="content"><p><%= goal.description %> by <%= goal.deadline %></p></div>
+            <% end %>
+          </div>
+        <% end %>
       <% end %>
     </section>
   </body>

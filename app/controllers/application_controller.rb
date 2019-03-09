@@ -16,6 +16,10 @@ class ApplicationController < Sinatra::Base
     erb :index
   end
 
+  get '/resources' do
+    erb :resources
+  end
+
   helpers do
     def logged_in?
       !!session[:user_id]
@@ -27,6 +31,10 @@ class ApplicationController < Sinatra::Base
 
     def user_goals
       Goal.all.select{|goal| goal.user_id == session[:user_id]}
+    end
+
+    def current_user_goals(user)
+      Goal.all.select{|goal| goal.user_id == user[:id]}
     end
 
     def dateify(date)
