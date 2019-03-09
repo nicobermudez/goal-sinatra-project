@@ -1,4 +1,4 @@
-<h1>Welcome <%= current_user.username %> </h1>
+<h1>Welcome, <%= current_user.username %>!</h1>
 
 <% if !@goals %>
   <h2> You currently have no goals. </h2>
@@ -9,7 +9,9 @@
     <% end %>
 <% end %>
 
-<h2> Create New Goal </h2>
+<form method="get" action='/create-goal'>
+  <button type="submit">Create Goal</button>
+</form>
 
 
 
