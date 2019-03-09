@@ -14,6 +14,14 @@ class GoalsController < ApplicationController
     erb :"goals/create-goal"
   end
 
+  get '/edit-goal' do
+    erb :'/goals/edit-goal'
+  end
+
+  get '/delete-goal' do
+    erb :'/goals/delete-goal'
+  end
+
   post '/create-goal' do
     if params['goal'][:title] == "" || params['goal'][:description] == "" || params['goal'][:action_plan] == "" || params['goal'][:deadline] == ""
       flash[:message] = "You need to fill in each box in order to successfully create new goal"

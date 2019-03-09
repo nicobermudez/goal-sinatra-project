@@ -1,4 +1,8 @@
+require 'rack-flash'
+
 class UsersController < ApplicationController
+
+  use Rack::Flash
 
   get '/signup' do
     erb :'users/signup'
@@ -16,12 +20,13 @@ class UsersController < ApplicationController
   end
 
   post '/login' do
-    user = User.find_by(:username => params[:username])
-    if user && user.authenticate(params[:password])
+    user = User.find_by(:username => params[:user][:username])
+    if user && user.authenticate(params[:user][:password])
       session[:user_id] = user.id
       redirect '/home'
     else
-      redirect '/signup'
+      flash[:message] = "You have entered invalid credentials. Please try again or sign up."
+      redirect '/'
     end
   end
 

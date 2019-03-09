@@ -2,16 +2,15 @@
   <head>
     <title>Home</title>
     <style>
+
       .hero {
         padding: 40px;
         text-align: center;
       }
-
-      h1 {
+      h3 {
         text-align: center;
         margin-top: 40px;
       }
-
       h2 {
         border-bottom: 1px solid rgb(100, 220, 145);
         border-bottom-length: 10px;
@@ -22,23 +21,32 @@
       .other-goals h2{
         width: 200px;
       }
-
       .user-form {
         padding: 0;
         text-align: center;
+      }
+      .edit-or-delete-goal {
+        overflow: hidden;
+        width: 220px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .edit-or-delete-goal form {
+        float: left;
       }
     </style>
   </head>
 
   <body>
     <header>
-      <a href ="/"<h1>GOAL</h1></a>
+      <a href ="/"><h1>GOAL</h1></a>
       <nav>
         <a href="/home">Home</a>
         <a href="/feed">Feed</a>
+        <a href="/">Log Out</a>
       </nav>
     </header>
-    <h1>Welcome, <%= current_user.username %>!</h1>
+    <h3>Welcome, <%= current_user.username %>!</h3>
     <section class="hero">
       <div class="user-goals">
 
@@ -58,6 +66,11 @@
                   <p>Description: <%= goal.description %></p>
                   <p>Action Plan: <%= goal.action_plan %></p>
                   <p>Deadline: <%= goal.deadline %></p>
+
+                  <div class="edit-or-delete-goal">
+                    <form method="get" action="/edit-goal"><button type="submit">Edit Goal</button></form>
+                    <form method="get" action="/delete-goal"><button type="submit">Delete Goal</button></form>
+                  </div>
               <% end %>
               <form class= "user-form" method="get" action='/create-goal'>
                 <button type="submit">Create New Goal</button>
