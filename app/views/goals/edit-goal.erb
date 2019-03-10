@@ -1,10 +1,25 @@
 <html>
   <head>
     <title>Edit Goal</title>
+    <style>
+
+      h3 {
+        text-align: center;
+      }
+
+      .user-form input{
+        width: 550px;
+      }
+
+      .user-form input.long-text {
+        padding-bottom: 100px;
+      }
+
+    </style>
   </head>
 
   <header>
-    <a href ="/"><h1>GOAL</h1></a>
+    <a href ="/home"><h1>GOAL</h1></a>
     <nav>
       <a href="/home">Home</a>
       <a href="/feed">Feed</a>
@@ -12,7 +27,27 @@
       <a href="/">Log Out</a>
     </nav>
   </header>
+
   <body>
+    <h3>Edit Goal </h3>
+
+
+    <!-- not sure how to show current goal from chosen goal, and set placeholders to have goal info -->
+
+    <% if flash.has?(:message) %>
+      <p style="color:#f0ad4e; text-align: center;"><%= flash[:message] %> </p>
+    <% end %>
+
+  <!-- Need to validate date and email -->
+    <section class="user-form">
+      <form method="POST" action="/create-goal">
+        <input type="text" name="goal[title]" placeholder="Title"><br>
+        <input class= "long-text" type="text" name="goal[description]" placeholder="Description"><br>
+        <input class= "long-text" type="text" name="goal[action_plan]" placeholder="Action Plan"><br>
+        <input type="date" name="goal[deadline]" placeholder="Deadline (mm/dd/yyyy)"><br>
+        <button type="submit">Edit Goal</button>
+      </form>
+    </section>
   </body>
 
 </html>

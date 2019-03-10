@@ -22,7 +22,7 @@
 
 
   <header>
-    <a href ="/"><h1>GOAL</h1></a>
+    <a href ="/home"><h1>GOAL</h1></a>
     <nav>
       <a href="/home">Home</a>
       <a href="/feed">Feed</a>
@@ -39,7 +39,7 @@
             <h4> @<%= user.username %>:</h4>
             <% current_user_goals(user).each_with_index do |goal, index| %>
               <div class="title"><p>Goal #<%=index+1%>: <%=goal.title%></p></div>
-              <div class="content"><p><%= goal.description %> by <%= goal.deadline %></p></div>
+              <div class="content"><p><%= goal.description %> by <%= dateify(goal.deadline) %></p></div>
             <% end %>
           </div>
         <% end %>

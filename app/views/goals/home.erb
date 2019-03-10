@@ -39,7 +39,7 @@
 
   <body>
     <header>
-      <a href ="/"><h1>GOAL</h1></a>
+      <a href ="/home"><h1>GOAL</h1></a>
       <nav>
         <a href="/home">Home</a>
         <a href="/feed">Feed</a>
@@ -66,11 +66,11 @@
                   <h4>Goal #<%= index + 1 %>: <%= goal.title %></h4>
                   <p>Description: <%= goal.description %></p>
                   <p>Action Plan: <%= goal.action_plan %></p>
-                  <p>Deadline: <%= goal.deadline %></p>
+                  <p>Deadline: <%= dateify(goal.deadline) %></p>
 
                   <div class="edit-or-delete-goal">
                     <form method="get" action="/edit-goal"><button type="submit">Edit Goal</button></form>
-                    <form method="get" action="/delete-goal"><button type="submit">Delete Goal</button></form>
+                    <form method="post" action="/delete-goal"><button type="submit">Delete Goal</button></form>
                   </div>
               <% end %>
               <form class= "user-form" method="get" action='/create-goal'>

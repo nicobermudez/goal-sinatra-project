@@ -36,6 +36,10 @@ class GoalsController < ApplicationController
     end
   end
 
+  post '/delete-goal' do
+    # goal.delete 
+  end
+
   get '/feed' do
     erb :'goals/feed'
   end
