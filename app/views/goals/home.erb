@@ -69,8 +69,8 @@
                   <p>Deadline: <%= dateify(goal.deadline) %></p>
 
                   <div class="edit-or-delete-goal">
-                    <form method="get" action="/edit-goal"><button type="submit">Edit Goal</button></form>
-                    <form method="post" action="/delete-goal"><button type="submit">Delete Goal</button></form>
+                    <button type="submit"><a href="/goals/<%=goal.id%>/edit">Edit Goal</a></button>
+                    <form method="post" action="/goals/<%=goal.id%>/delete"><button type="submit">Delete Goal</button></form>
                   </div>
               <% end %>
               <form class= "user-form" method="get" action='/create-goal'>

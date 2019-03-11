@@ -40,11 +40,12 @@
 
   <!-- Need to validate date and email -->
     <section class="user-form">
-      <form method="POST" action="/create-goal">
-        <input type="text" name="goal[title]" placeholder="Title"><br>
-        <input class= "long-text" type="text" name="goal[description]" placeholder="Description"><br>
-        <input class= "long-text" type="text" name="goal[action_plan]" placeholder="Action Plan"><br>
-        <input type="date" name="goal[deadline]" placeholder="Deadline (mm/dd/yyyy)"><br>
+      <form method="POST" action="/goals/<%=@goal.id%>">
+        <input id="hidden" type="hidden" name="_method" value="PATCH">
+        <label</label><input type="text" name="goal[title]" value="<%= @goal.title%>"><br>
+        <input class= "long-text" type="text" name="goal[description]" value="<%= @goal.description%>"><br>
+        <input class= "long-text" type="text" name="goal[action_plan]" value="<%= @goal.action_plan%>"><br>
+        <input type="date" name="goal[deadline]" value="<%= @goal.deadline.strftime("%Y-%m-%d")%>"><br>
         <button type="submit">Edit Goal</button>
       </form>
     </section>
