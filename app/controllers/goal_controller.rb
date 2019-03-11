@@ -68,8 +68,16 @@ class GoalsController < ApplicationController
     end
   end
 
-  delete '/goal/:id/delete' do
-    # goal.delete
+  delete '/goals/:id/delete' do
+    if logged_in?
+      @goal = Goal.find_by_id(params[:id])
+      if @goal && @goal.user == current_user
+        @goal.delete
+      end
+      redirect to '/home'
+    else
+      redirect to '/'
+    end
   end
 
 end

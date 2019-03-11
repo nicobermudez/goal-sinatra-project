@@ -70,7 +70,10 @@
 
                   <div class="edit-or-delete-goal">
                     <button type="submit"><a href="/goals/<%=goal.id%>/edit">Edit Goal</a></button>
-                    <form method="post" action="/goals/<%=goal.id%>/delete"><button type="submit">Delete Goal</button></form>
+                    <form method="post" action="/goals/<%=goal.id%>/delete">
+                      <input id="hidden" type="hidden" name="_method" value="DELETE">
+                      <button type="submit">Delete Goal</button>
+                    </form>
                   </div>
               <% end %>
               <form class= "user-form" method="get" action='/create-goal'>
