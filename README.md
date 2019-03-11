@@ -1,5 +1,7 @@
 # GOAL Sinatra Project
 
+![](file:///Users/nicolasbermudez/Desktop/Screen%20Shot%202019-03-11%20at%2013.58.54.png)
+
 This is a sinatra web application created to keep track of your goals, by adding:
 
 * Title
