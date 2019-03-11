@@ -1,6 +1,6 @@
 # GOAL Sinatra Project
 
-![]("https://user-images.githubusercontent.com/35746593/54146358-31f2d080-4406-11e9-815a-b8f3e4932dbb.png")
+![](https://user-images.githubusercontent.com/35746593/54146358-31f2d080-4406-11e9-815a-b8f3e4932dbb.png)
 
 This is a sinatra web application created to keep track of your goals, by adding:
 
