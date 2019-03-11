@@ -34,6 +34,17 @@
       .edit-or-delete-goal form {
         float: left;
       }
+      .random-quote {
+        text-align: center;
+      }
+      .random-quote img{
+        max-width: 300px;
+      }
+      .random-quote h4 {
+        max-width: 300px;
+        margin-left: auto;
+        margin-right: auto;
+      }
     </style>
   </head>
 
@@ -48,6 +59,12 @@
       </nav>
     </header>
     <h3>Welcome, <%= current_user.username %>!</h3>
+    <div class="random-quote">
+      <img src="">
+      <h4>Quote</h4>
+      <p>Author</p>
+    </div>
+
     <section class="hero">
       <div class="user-goals">
 
@@ -83,5 +100,23 @@
       </div>
 
     </section>
+
+      <!-- Generate inspiring quote of the day from World's best quotes API -->
+      <script>
+        const url = "http://quotes.rest/qod.json?category=inspire"
+        const quoteTag = document.querySelector(".random-quote h4")
+        const authorTag = document.querySelector(".random-quote p")
+        const imageTag = document.querySelector(".random-quote img")
+
+        const randomQuote = function() {
+          fetch(url).then(response => response.json()).then(data => {
+            quoteTag.innerHTML = '"' + data.contents.quotes[0].quote + '"'
+            authorTag.innerHTML = data.contents.quotes[0].author
+            imageTag.src = data.contents.quotes[0].background
+          })
+        }
+        randomQuote()
+
+      </script>
     </body>
 </html>

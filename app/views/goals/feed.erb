@@ -17,6 +17,9 @@
     .user-feed {
       border-bottom: 1px solid #ABD0CE;
     }
+    h3 {
+      text-align: center;
+    }
   </style>
 </head>
 
@@ -32,16 +35,23 @@
   </header>
   <body>
     <section class="hero">
-      <% sorted_user_hash = User.all.sort_by {|key| key[:username]} %>
-      <% sorted_user_hash.each do |user| %>
-        <% if !current_user_goals(user).empty? %>
-          <div class="user-feed">
-            <h4> @<%= user.username %>:</h4>
-            <% current_user_goals(user).each_with_index do |goal, index| %>
-              <div class="title"><p>Goal #<%=index+1%>: <%=goal.title%></p></div>
-              <div class="content"><p><%= goal.description %> by <%= dateify(goal.deadline) %></p></div>
-            <% end %>
-          </div>
+      <% if Goal.all.empty? %>
+        <h3> The Feed is currently empty. </h3>
+        <form class= "user-form" method="get" action='/create-goal'>
+          <button type="submit">Create Goal</button>
+        </form>
+      <% else %>
+        <% sorted_user_hash = User.all.sort_by {|key| key[:username]} %>
+        <% sorted_user_hash.each do |user| %>
+          <% if !current_user_goals(user).empty? %>
+            <div class="user-feed">
+              <h4> @<%= user.username %>:</h4>
+              <% current_user_goals(user).each_with_index do |goal, index| %>
+                <div class="title"><p>Goal #<%=index+1%>: <%=goal.title%></p></div>
+                <div class="content"><p><%= goal.description %> by <%= dateify(goal.deadline) %></p></div>
+              <% end %>
+            </div>
+          <% end %>
         <% end %>
       <% end %>
     </section>
