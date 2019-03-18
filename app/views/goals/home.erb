@@ -61,7 +61,7 @@
     <h3>Welcome, <%= current_user.username %>!</h3>
     <div class="random-quote">
       <img src="">
-      <h4>Quote</h4>
+      <h4>Quote of the Day: </h4>
       <p>Author</p>
     </div>
 
@@ -110,9 +110,9 @@
 
         const randomQuote = function() {
           fetch(url).then(response => response.json()).then(data => {
-            quoteTag.innerHTML = '"' + data.contents.quotes[0].quote + '"'
+            quoteTag.innerHTML = 'Quote of the day: "' + data.contents.quotes[0].quote + '"'
             authorTag.innerHTML = data.contents.quotes[0].author
-            imageTag.src = data.contents.quotes[0].background
+            imageTag.src = "https://images.unsplash.com/photo-1496449903678-68ddcb189a24?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjU5MTMxfQ"
           })
         }
         randomQuote()
