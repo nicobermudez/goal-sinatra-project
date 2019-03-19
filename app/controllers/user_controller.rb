@@ -10,7 +10,11 @@ class UsersController < ApplicationController
 
   post '/signup' do
     if params[:username] == "" || params[:email] == "" || params[:password] == ""
+      flash[:message] = "You have entered invalid credentials. Please try again."
       redirect '/signup'
+    elsif User.find_by(username: params[:username])
+      flash[:message] = "Username already exists"
+      redirect '/'
     else
       @user = User.new(:username => params[:username], :email => params[:email], :password => params[:password])
       @user.save
