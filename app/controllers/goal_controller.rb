@@ -74,7 +74,7 @@ class GoalsController < ApplicationController
       if @goal && @goal.user == current_user
         @goal.delete
       end
-      redirect to '/home'
+      redirect to '/'
     else
       redirect to '/'
     end
