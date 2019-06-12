@@ -1,28 +1,28 @@
-# development:
-#   adapter: sqlite3
-#   database: database.db
-#
-# production:
-#   adapter: postgresql
-#   encoding: unicode
-#   pool: 2
-#   database: d2ck2qmokrbn69
-#   username: ikpimkzqqprigx
-#   password: e1e1ef812be078a498531b1b9369a8decd9e66aff358a407c4add245b2116b34
-#   host: ec2-54-197-239-115.compute-1.amazonaws.com
+development:
+  adapter: sqlite3
+  database: database.db
 
-default: &default
+production:
   adapter: postgresql
   encoding: unicode
   pool: 2
-  host: <%= ENV['DATA_DB_HOST'] %>
-  username: <%= ENV['DATA_DB_USER'] %>
-  password: <%= ENV['DATA_DB_PASS'] %>
+  database: d2ck2qmokrbn69
+  username: ikpimkzqqprigx
+  password: e1e1ef812be078a498531b1b9369a8decd9e66aff358a407c4add245b2116b34
+  host: ec2-54-197-239-115.compute-1.amazonaws.com
 
-development:
-  <<: *default
-  database: development
-
-production:
-  <<: *default
-  database: production
+# default: &default
+#   adapter: postgresql
+#   encoding: unicode
+#   pool: 2
+#   host: <%= ENV['DATA_DB_HOST'] %>
+#   username: <%= ENV['DATA_DB_USER'] %>
+#   password: <%= ENV['DATA_DB_PASS'] %>
+#
+# development:
+#   <<: *default
+#   database: development
+#
+# production:
+#   <<: *default
+#   database: production

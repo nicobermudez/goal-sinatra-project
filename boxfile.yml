@@ -1,2 +1,0 @@
-data.db:
-  image: nanobox/postgresql:9.5
