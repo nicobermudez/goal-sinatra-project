@@ -19,7 +19,7 @@ configure :production do
    :host     => 'ec2-54-197-239-115.compute-1.amazonaws.com',
    :username => 'ikpimkzqqprigx',
    :password => 'e1e1ef812be078a498531b1b9369a8decd9e66aff358a407c4add245b2116b34',
-   :database => db.path[1..-1],
+   :database => 'postgresql-slippery-26582',
    :encoding => 'utf8'
  )
 end
