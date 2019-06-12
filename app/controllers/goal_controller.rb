@@ -6,11 +6,12 @@ class GoalsController < ApplicationController
 
   get '/home' do
     @user = current_user
-    @goals = user_goals
+    @goals = @user.goals
     erb :'goals/home'
   end
 
   get '/feed' do
+    @users = User.all.sort_by {|key| key[:username]}
     erb :'goals/feed'
   end
 
@@ -33,16 +34,13 @@ class GoalsController < ApplicationController
   end
 
   get '/goals/:id/edit' do
-    if logged_in?
+      redirect_if_not_logged_in
       @goal = Goal.find_by_id(params[:id])
       if @goal && @goal.user == current_user
         erb :"goals/edit-goal"
       else
         redirect to '/home'
       end
-    else
-      redirect to '/'
-    end
   end
 
   patch '/goals/:id' do
@@ -74,7 +72,7 @@ class GoalsController < ApplicationController
       if @goal && @goal.user == current_user
         @goal.delete
       end
-      redirect to '/'
+      redirect to '/home'
     else
       redirect to '/'
     end

@@ -41,14 +41,13 @@
           <button type="submit">Create Goal</button>
         </form>
       <% else %>
-        <% sorted_user_hash = User.all.sort_by {|key| key[:username]} %>
-        <% sorted_user_hash.each do |user| %>
-          <% if !current_user_goals(user).empty? %>
+        <% @users.each do |user| %>
+          <% if !user.goals.empty? %>
             <div class="user-feed">
               <h4> @<%= user.username %>:</h4>
-              <% current_user_goals(user).each_with_index do |goal, index| %>
+              <% user.goals.each_with_index do |goal, index| %>
                 <div class="title"><p>Goal #<%=index+1%>: <%=goal.title%></p></div>
-                <div class="content"><p><%= goal.description %> by <%= dateify(goal.deadline) %></p></div>
+                <div class="content"><p><%= goal.description %> by <%= goal.dateify %></p></div>
               <% end %>
             </div>
           <% end %>
