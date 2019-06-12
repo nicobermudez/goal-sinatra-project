@@ -4,9 +4,7 @@ development:
 
 production:
   adapter: postgresql
-  database: goal
+  database: postgresql-slippery-26582
   username: nicolasbermudez
   password: password
   host: localhost
-
-  
