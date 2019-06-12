@@ -14,7 +14,6 @@ gem 'tux'
 gem 'rack-flash3'
 gem 'sinatra-flash'
 gem 'bcrypt'
-gem 'sqlite3'
 
 group :test do
   gem 'launchy'
@@ -22,4 +21,13 @@ group :test do
   gem 'capybara'
   gem 'rack-test'
   gem 'database_cleaner', git: 'https://github.com/bmabey/database_cleaner.git'
+end
+
+group :development  do
+  gem 'sqlite3'
+end
+
+group :production do
+  gem 'pg'
+  gem 'activerecord-postgresql-adapter'
 end
