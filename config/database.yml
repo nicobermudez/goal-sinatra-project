@@ -4,7 +4,7 @@ development:
 
 production:
   adapter: postgresql
-  database: postgresql-slippery-26582
-  username: nicolasbermudez
+  database: d2ck2qmokrbn69
+  username: ikpimkzqqprigx
   password: password
-  host: localhost
+  host: ec2-54-197-239-115.compute-1.amazonaws.com
